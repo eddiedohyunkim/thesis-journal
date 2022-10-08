@@ -76,12 +76,12 @@ i { font-style: italic; }
   		font-size: 1em;
 	}
 	.info{
-		border-right: 1px solid #000;
-		border-bottom: 1px solid #000;
+		border-right: 1px dashed #000;
+		border-bottom: 1px dashed #000;
 	}
 	.class .info{
-		border-right: 1px solid yellow;
-		border-bottom: 1px solid yellow;
+		border-right: 1px dashed yellow;
+		border-bottom: 1px dashed yellow;
 	}
 	.class .mood, .mood{
 		border-right: 1px solid transparent;
@@ -103,12 +103,12 @@ i { font-style: italic; }
   		font-size: 1em;
 	}
 	.info{
-		border-right: 1px solid #000;
-		border-bottom: 1px solid #000;
+		border-right: 1px dashed #000;
+		border-bottom: 1px dashed #000;
 	}
 	.class .info{
-		border-right: 1px solid yellow;
-		border-bottom: 1px solid yellow;
+		border-right: 1px dashed yellow;
+		border-bottom: 1px dashed yellow;
 	}
 	.class .mood, .mood{
 		border-right: 1px solid transparent;
@@ -119,8 +119,7 @@ i { font-style: italic; }
 	}
 }
 
-
-
+/* DESKTOP */
 @media (hover) and (max-width: 800px) {
 	.row{
 		grid-template-columns:33.3333vw 33.3333vw 33.3333vw;
@@ -134,12 +133,12 @@ i { font-style: italic; }
   		font-size: 1em;
 	}
 	.info{
-		border-right: 1px solid #000;
-		border-bottom: 1px solid #000;
+		border-right: 1px dashed #000;
+		border-bottom: 1px dashed #000;
 	}
 	.class .info{
-		border-right: 1px solid yellow;
-		border-bottom: 1px solid yellow;
+		border-right: 1px dashed yellow;
+		border-bottom: 1px dashed yellow;
 	}
 	.class .mood, .mood{
 		border-right: 1px solid transparent;
