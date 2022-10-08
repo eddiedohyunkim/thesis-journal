@@ -1,0 +1,148 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+	background-color: yellow;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+b { font-weight: bold;}
+i { font-style: italic; }
+
+#journal{
+	width: 100%;
+}
+.row{
+	display:grid;
+	border-bottom: 1px solid #000;
+}
+.cell{
+	border: 1px solid transparent;
+  	word-wrap: break-word;
+}
+.class{
+	background-color: #000;
+	color: yellow;
+}
+
+@media only screen and (max-width: 600px) {
+	.row{
+		grid-template-columns:33.3333vw 33.3333vw 33.3333vw;
+		grid-template-rows:auto auto;
+	}
+	.cell{
+  		font-size: 1em;
+  		padding: 0.15em;
+	}
+	.info{
+		border-right: 1px solid #000;
+		border-bottom: 1px solid #000;
+	}
+	.class .info{
+		border-right: 1px solid yellow;
+		border-bottom: 1px solid yellow;
+	}
+	.class .mood, .mood{
+		border-right: 1px solid transparent;
+	}
+	.notes{
+		grid-column: 1/4;
+		grid-row: 2/3;
+	}
+	.date, .day{
+		letter-spacing: 0.04em;
+	}
+}
+
+@media (hover) and (min-width: 600px) {
+	.row{
+		grid-template-columns:33.3333vw 33.3333vw 33.3333vw;
+		grid-template-rows:auto auto;
+	}
+	.notes{
+		grid-column: 1/4;
+		grid-row: 2/3;
+	}
+	.cell{
+  		font-size: 1.25em;
+  		padding: 0.175em;
+	}
+	.info{
+		border-right: 1px solid #000;
+		border-bottom: 1px solid #000;
+	}
+	.class .info{
+		border-right: 1px solid yellow;
+		border-bottom: 1px solid yellow;
+	}
+	.date, .day{
+		letter-spacing: 0.03em;
+	}
+	.class .mood, .mood{
+		border-right: 1px solid transparent;
+	}
+}
+
+@media (hover) and (min-width: 800px){
+	.row{
+		grid-template-columns:16.6666vw 16.6666vw 16.6666vw 50vw;
+		grid-template-rows: auto;
+	}
+	.notes{
+		grid-column: 4/5;
+		grid-row: 1/2;
+	}
+	.cell{
+  		font-size: 1.5em;
+  		padding: 0.2em;
+	}
+	.info{
+		border-right: 1px solid #000;
+		border-bottom: 1px solid transparent;
+	}
+	.class .info{
+		border-right: 1px solid yellow;
+		border-bottom: 1px solid transparent;
+	}
+	.date, .day{
+		letter-spacing: 0.04em;
+	}
+}
+
+
