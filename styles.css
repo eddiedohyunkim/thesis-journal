@@ -55,20 +55,25 @@ i { font-style: italic; }
 .cell{
 	border: 1px solid transparent;
   	word-wrap: break-word;
+  	padding: 0.2em;
 }
 .class{
 	background-color: #000;
 	color: yellow;
 }
+.date, .day{
+	letter-spacing: 0.04em;
+}
 
-@media only screen and (max-width: 600px) {
+@media only screen and (min-device-width: 320px) 
+  and (max-device-width: 812px) 
+  and (orientation: portrait) {
 	.row{
 		grid-template-columns:33.3333vw 33.3333vw 33.3333vw;
 		grid-template-rows:auto auto;
 	}
 	.cell{
   		font-size: 1em;
-  		padding: 0.15em;
 	}
 	.info{
 		border-right: 1px solid #000;
@@ -85,23 +90,17 @@ i { font-style: italic; }
 		grid-column: 1/4;
 		grid-row: 2/3;
 	}
-	.date, .day{
-		letter-spacing: 0.04em;
-	}
 }
 
-@media (hover) and (min-width: 600px) {
+@media only screen and (min-device-width: 320px) 
+  and (max-device-width: 900px) 
+  and (orientation: landscape) {
 	.row{
 		grid-template-columns:33.3333vw 33.3333vw 33.3333vw;
 		grid-template-rows:auto auto;
 	}
-	.notes{
-		grid-column: 1/4;
-		grid-row: 2/3;
-	}
 	.cell{
-  		font-size: 1.25em;
-  		padding: 0.175em;
+  		font-size: 1em;
 	}
 	.info{
 		border-right: 1px solid #000;
@@ -111,8 +110,36 @@ i { font-style: italic; }
 		border-right: 1px solid yellow;
 		border-bottom: 1px solid yellow;
 	}
-	.date, .day{
-		letter-spacing: 0.03em;
+	.class .mood, .mood{
+		border-right: 1px solid transparent;
+	}
+	.notes{
+		grid-column: 1/4;
+		grid-row: 2/3;
+	}
+}
+
+
+
+@media (hover) and (max-width: 800px) {
+	.row{
+		grid-template-columns:33.3333vw 33.3333vw 33.3333vw;
+		grid-template-rows:auto auto;
+	}
+	.notes{
+		grid-column: 1/4;
+		grid-row: 2/3;
+	}
+	.cell{
+  		font-size: 1em;
+	}
+	.info{
+		border-right: 1px solid #000;
+		border-bottom: 1px solid #000;
+	}
+	.class .info{
+		border-right: 1px solid yellow;
+		border-bottom: 1px solid yellow;
 	}
 	.class .mood, .mood{
 		border-right: 1px solid transparent;
@@ -129,8 +156,7 @@ i { font-style: italic; }
 		grid-row: 1/2;
 	}
 	.cell{
-  		font-size: 1.5em;
-  		padding: 0.2em;
+  		font-size: 1.25em;
 	}
 	.info{
 		border-right: 1px solid #000;
@@ -140,8 +166,10 @@ i { font-style: italic; }
 		border-right: 1px solid yellow;
 		border-bottom: 1px solid transparent;
 	}
-	.date, .day{
-		letter-spacing: 0.04em;
+}
+@media (hover) and (min-width: 1200px){
+	.cell{
+  		font-size: 1.5em;
 	}
 }
 
