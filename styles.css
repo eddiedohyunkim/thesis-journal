@@ -42,8 +42,8 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-b { font-weight: bold;}
-i { font-style: italic; }
+b {font-weight: bold;}
+i {font-style: italic;}
 
 #journal{
 	width: 100%;
@@ -55,9 +55,10 @@ i { font-style: italic; }
 	padding-bottom: 0.2em;
 }
 .cell{
-	border: 1px solid transparent;
+	/*border: 0px;*/
   	word-wrap: break-word;
-  	box-sizing: border-box;
+  	padding-left: 0.2em;
+  	padding-right: 0.2em;
 }
 .classday{
 	background-color: #000;
@@ -69,14 +70,10 @@ i { font-style: italic; }
 	grid-template-rows: auto;
 }
 .infoCont .cell{
-	padding-left: 0.2em;
-  	padding-right: 0.2em;
+	
   	letter-spacing: 0.04em;
 }
 .notes{
-	padding-left: 0.2em;
-	padding-right: 0.2em;
-
 }
 
 @media not all and (hover: none) and (min-device-width: 320px) 
@@ -91,17 +88,15 @@ i { font-style: italic; }
 	}
 	.info{
 		border-right: 1px dashed #000;
-		/*border-bottom: 1px dashed #000;*/
 	}
 	.infoCont{
 		padding-bottom: 0.2em;
 	}
 	.classday .info{
 		border-right: 1px dashed yellow;
-		/*border-bottom: 1px dashed yellow;*/
 	}
 	.classday .mood, .mood{
-		border-right: 1px solid transparent;
+		border-right: 0px;
 	}
 	.notes{
 		padding-top: 0.2em;
@@ -126,17 +121,15 @@ i { font-style: italic; }
 	}
 	.info{
 		border-right: 1px dashed #000;
-		/*border-bottom: 1px dashed #000;*/
 	}
 	.infoCont{
 		padding-bottom: 0.2em;
 	}
 	.classday .info{
 		border-right: 1px dashed yellow;
-		/*border-bottom: 1px dashed yellow;*/
 	}
 	.classday .mood, .mood{
-		border-right: 1px solid transparent;
+		border-right: 0px;
 	}
 	.notes{
 		padding-top: 0.2em;
@@ -175,14 +168,12 @@ i { font-style: italic; }
 	}
 	.info{
 		border-right: 1px dashed #000;
-		/*border-bottom: 1px dashed #000;*/
 	}
 	.classday .info{
 		border-right: 1px dashed yellow;
-		/*border-bottom: 1px dashed yellow;*/
 	}
 	.classday .mood, .mood{
-		border-right: 1px solid transparent;
+		border-right: 0px;
 	}
 }
 
@@ -195,10 +186,10 @@ i { font-style: italic; }
 		padding-top: 0;
 		grid-column: 2/3;
 		grid-row: 1/2;
-		border-top: 1px solid transparent;
+		border-top: 0px;
 	}
 	.classday .notes{
-		border-top: 1px solid transparent;
+		border-top: 0px;
 	}
 	.infoCont{
 		padding-bottom: 0;
@@ -208,11 +199,11 @@ i { font-style: italic; }
 	}
 	.info{
 		border-right: 1px solid #000;
-		border-bottom: 1px solid transparent;
+		border-bottom: 0px;
 	}
 	.classday .info{
 		border-right: 1px solid yellow;
-		border-bottom: 1px solid transparent;
+		border-bottom: 0px;
 	}
 }
 @media screen and (min-width: 1200px){
@@ -220,5 +211,3 @@ i { font-style: italic; }
   		font-size: 1.5em;
 	}
 }
-
-
