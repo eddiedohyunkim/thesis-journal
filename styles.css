@@ -23,7 +23,7 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 body {
-	line-height: 1;
+	line-height: 1.2;
 	background-color: yellow;
 }
 
@@ -51,7 +51,7 @@ body {
 	grid-template-columns: 33.3333% 33.3333% 33.3333%;
 	grid-template-rows: auto;
 }
-.infoCont .cell{
+.date, .day{
   	letter-spacing: 0.04em;
 }
 .notes{
@@ -76,7 +76,7 @@ body {
 	.classday .info{
 		border-right: 1px solid yellow;
 	}
-	.classday .mood, .mood{
+	.classday .rating, .rating{
 		border-right: 0px;
 	}
 	.notes{
@@ -109,7 +109,7 @@ body {
 	.classday .info{
 		border-right: 1px solid yellow;
 	}
-	.classday .mood, .mood{
+	.classday .rating, .rating{
 		border-right: 0px;
 		-webkit-border-right: 0px;
 	}
@@ -150,7 +150,7 @@ body {
 	.classday .info{
 		border-right: 1px solid yellow;
 	}
-	.classday .mood, .mood{
+	.classday .rating, .rating{
 		border-right: 0px;
 		-webkit-border-right: 0px;
 	}
