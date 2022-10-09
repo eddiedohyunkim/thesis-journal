@@ -2,8 +2,7 @@ html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
+small, strike, strong, sub, sup, tt, var, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
@@ -27,38 +26,21 @@ body {
 	line-height: 1;
 	background-color: yellow;
 }
-ol, ul {
-	list-style: none;
-}
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
-b {font-weight: bold;}
-i {font-style: italic;}
 
 #journal{
 	width: 100%;
 }
 .row{
-	display:grid;
+	display: grid;
 	border-bottom: 1px solid #000;
 	padding-top: 0.2em;
 	padding-bottom: 0.2em;
 }
 .cell{
-	/*border: 0px;*/
   	word-wrap: break-word;
   	padding-left: 0.2em;
   	padding-right: 0.2em;
+  	box-sizing: border-box;
 }
 .classday{
 	background-color: #000;
@@ -70,7 +52,6 @@ i {font-style: italic;}
 	grid-template-rows: auto;
 }
 .infoCont .cell{
-	
   	letter-spacing: 0.04em;
 }
 .notes{
@@ -87,25 +68,25 @@ i {font-style: italic;}
   		font-size: 1em;
 	}
 	.info{
-		border-right: 1px dashed #000;
+		border-right: 1px solid #000;
 	}
 	.infoCont{
 		padding-bottom: 0.2em;
 	}
 	.classday .info{
-		border-right: 1px dashed yellow;
+		border-right: 1px solid yellow;
 	}
 	.classday .mood, .mood{
 		border-right: 0px;
 	}
 	.notes{
 		padding-top: 0.2em;
-		border-top: 1px dashed #000;
+		border-top: 1px solid #000;
 		grid-column: 1/2;
 		grid-row: 2/3;
 	}
 	.classday .notes{
-		border-top: 1px dashed yellow;
+		border-top: 1px solid yellow;
 	}
 }
 
@@ -120,25 +101,26 @@ i {font-style: italic;}
   		font-size: 1em;
 	}
 	.info{
-		border-right: 1px dashed #000;
+		border-right: 1px solid #000;
 	}
 	.infoCont{
 		padding-bottom: 0.2em;
 	}
 	.classday .info{
-		border-right: 1px dashed yellow;
+		border-right: 1px solid yellow;
 	}
 	.classday .mood, .mood{
 		border-right: 0px;
+		-webkit-border-right: 0px;
 	}
 	.notes{
 		padding-top: 0.2em;
-		border-top: 1px dashed #000;
+		border-top: 1px solid #000;
 		grid-column: 1/2;
 		grid-row: 2/3;
 	}
 	.classday .notes{
-		border-top: 1px dashed yellow;
+		border-top: 1px solid yellow;
 	}
 }
 
@@ -152,28 +134,25 @@ i {font-style: italic;}
 		grid-template-rows:auto auto;
 	}
 	.notes{
-		padding-top: 0.2em;
 		grid-column: 1/2;
 		grid-row: 2/3;
-		border-top: 1px dashed #000;
+		border-top: 1px solid #000;
 	}
 	.classday .notes{
-		border-top: 1px dashed yellow;
-	}
-	.infoCont{
-		padding-bottom: 0.2em;
+		border-top: 1px solid yellow;
 	}
 	.cell{
   		font-size: 1em;
 	}
 	.info{
-		border-right: 1px dashed #000;
+		border-right: 1px solid #000;
 	}
 	.classday .info{
-		border-right: 1px dashed yellow;
+		border-right: 1px solid yellow;
 	}
 	.classday .mood, .mood{
 		border-right: 0px;
+		-webkit-border-right: 0px;
 	}
 }
 
