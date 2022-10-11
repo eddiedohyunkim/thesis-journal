@@ -26,13 +26,6 @@ body {
 	line-height: 1.2;
 	background-color: yellow;
 }
-a{
-	color: #000;
-	cursor: pointer;
-	background-image: url(assets/share-arrow.svg);
-    background-position: center right;
-    background-repeat: no-repeat;
-}
 #journal{
 	width: 100%;
 }
@@ -59,6 +52,14 @@ a{
 }
 .date, .day{
   	letter-spacing: 0.04em;
+}
+a{
+	color: #000;
+	cursor: pointer;
+	background-image: url(assets/share-arrow.svg);
+    background-position: right;
+    background-repeat: no-repeat;
+    padding-right: 1em;
 }
 
 @media not all and (hover: none) and (min-device-width: 320px) 
@@ -91,10 +92,6 @@ a{
 	}
 	.classday .notes{
 		border-top: 1px solid yellow;
-	}
-	a{
-		background-size: 0.64em;
-    	padding-right: 0.7em;
 	}
 }
 
@@ -160,11 +157,6 @@ a{
 	}
 	.classday .rating, .rating{
 		border-right: 0px;
-		-webkit-border-right: 0px;
-	}
-	a{
-		background-size: 0.625em;
-    	padding-right: 0.7em;
 	}
 }
 
@@ -196,17 +188,9 @@ a{
 		border-right: 1px solid yellow;
 		border-bottom: 0px;
 	}
-	a{
-		background-size: 0.65em;
-    	padding-right: 0.7em;
-	}
 }
 @media screen and (min-width: 1200px){
 	.cell{
   		font-size: 1.5em;
-	}
-	a{
-		background-size: 0.7em;
-    	padding-right: 0.8em;
 	}
 }
