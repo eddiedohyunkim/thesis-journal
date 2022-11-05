@@ -22,9 +22,16 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
+@font-face{
+	font-family: myriad-pro-regular;
+	src: url('assets/MyriadPro-Regular.otf');
+}
 body {
+	/*font-family: myriad-pro-regular;*/
 	line-height: 1.2;
-	background-color: yellow;
+	background-color: #e0d28c;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 #journal{
 	width: 100%;
@@ -43,7 +50,7 @@ body {
 }
 .classday{
 	background-color: #000;
-	color: yellow;
+	color: #e0d28c;
 }
 .infoCont{
 	display: grid;
@@ -86,7 +93,7 @@ a{
 		padding-bottom: 0.2em;
 	}
 	.classday .info{
-		border-right: 1px solid yellow;
+		border-right: 1px solid #e0d28c;
 	}
 	.classday .rating, .rating{
 		border-right: 0px;
@@ -98,7 +105,7 @@ a{
 		grid-row: 2/3;
 	}
 	.classday .notes{
-		border-top: 1px solid yellow;
+		border-top: 1px solid #e0d28c;
 	}
 }
 
@@ -119,7 +126,7 @@ a{
 		padding-bottom: 0.2em;
 	}
 	.classday .info{
-		border-right: 1px solid yellow;
+		border-right: 1px solid #e0d28c;
 	}
 	.classday .rating, .rating{
 		border-right: 0px;
@@ -132,7 +139,7 @@ a{
 		grid-row: 2/3;
 	}
 	.classday .notes{
-		border-top: 1px solid yellow;
+		border-top: 1px solid #e0d28c;
 	}
 }*/
 
@@ -151,7 +158,7 @@ a{
 		border-top: 1px solid #000;
 	}
 	.classday .notes{
-		border-top: 1px solid yellow;
+		border-top: 1px solid #e0d28c;
 	}
 	.cell{
   		font-size: 1em;
@@ -160,7 +167,7 @@ a{
 		border-right: 1px solid #000;
 	}
 	.classday .info{
-		border-right: 1px solid yellow;
+		border-right: 1px solid #e0d28c;
 	}
 	.classday .rating, .rating{
 		border-right: 0px;
@@ -192,7 +199,7 @@ a{
 		border-bottom: 0px;
 	}
 	.classday .info{
-		border-right: 1px solid yellow;
+		border-right: 1px solid #e0d28c;
 		border-bottom: 0px;
 	}
 }

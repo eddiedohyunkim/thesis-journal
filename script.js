@@ -76,6 +76,6 @@ function findlink() {
 	console.log(htmlTxt);
 
 	var replace = linkify(htmlTxt);
-	html.innerHTML = replace;s
+	html.innerHTML = replace;
 }
 
