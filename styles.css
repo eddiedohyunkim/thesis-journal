@@ -58,7 +58,7 @@ body {
 	grid-template-rows: auto;
 }
 .date, .day{
-  	letter-spacing: 0.04em;
+  	letter-spacing: 0.02em;
 }
 .link{
 	font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
