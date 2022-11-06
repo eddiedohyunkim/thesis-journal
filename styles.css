@@ -22,162 +22,108 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
-@font-face{
-	font-family: myriad-pro-regular;
-	src: url('assets/MyriadPro-Regular.otf');
+:root {
+  --main-color: #e0d28c;
+  --spacing: 0.3em;
 }
 body {
-	/*font-family: myriad-pro-regular;*/
 	line-height: 1.2;
-	background-color: #e0d28c;
+	background-color: var(--main-color);
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
+
 #journal{
 	width: 100%;
 }
 .row{
 	display: grid;
 	border-bottom: 1px solid #000;
-	padding-top: 0.2em;
-	padding-bottom: 0.2em;
+	padding: var(--spacing);
 }
 .cell{
-  	word-wrap: break-word;
-  	padding-left: 0.2em;
-  	padding-right: 0.2em;
-  	box-sizing: border-box;
+  word-wrap: break-word;
+  padding-left: var(--spacing);
+  box-sizing: border-box;
 }
 .classday{
 	background-color: #000;
-	color: #e0d28c;
+	color: var(--main-color);
 }
 .infoCont{
+	font-family: 'Times Numeral Roman';
 	display: grid;
 	grid-template-columns: 33.3333% 33.3333% 33.3333%;
 	grid-template-rows: auto;
 }
 .date, .day{
-  	letter-spacing: 0.02em;
+  letter-spacing: 0.02em;
+}
+.date{
+	padding-left: 0;
 }
 .link{
-	font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-	font-size: 0.8em;
 	padding-left: 0.1em;
 }
 a{
-	color: #000;
+	color: inherit;
 	cursor: pointer;
-	/*background-image: url(assets/share-arrow2.svg);
-    background-position: right;
-    background-repeat: no-repeat;
-    padding-right: 1em;
-    text-decoration-line: underline;
-	text-decoration-thickness: 2px;*/
+	text-decoration: none;
 }
 
-@media not all and (hover: none) and (min-device-width: 320px) 
-  and (max-device-width: 812px) 
-  and (orientation: portrait) {
-	.row{
-		grid-template-columns:100vw;
-		grid-template-rows:auto auto;
-	}
-	.cell{
-  		font-size: 1em;
-	}
-	.info{
-		border-right: 1px solid #000;
+@media screen and (max-width: 600px){
+
+	/*body{
+		background-color: red;
+	}*/
+	.day, .rating{
+		text-align: center;
 	}
 	.infoCont{
-		padding-bottom: 0.2em;
+		text-align: center;
 	}
-	.classday .info{
-		border-right: 1px solid #e0d28c;
-	}
-	.classday .rating, .rating{
-		border-right: 0px;
-	}
-	.notes{
-		padding-top: 0.2em;
-		border-top: 1px solid #000;
-		grid-column: 1/2;
-		grid-row: 2/3;
-	}
-	.classday .notes{
-		border-top: 1px solid #e0d28c;
-	}
-}
-
-/*@media not all and (hover: none) and (min-device-width: 320px) 
-  and (max-device-width: 900px) 
-  and (orientation: landscape) {
 	.row{
-		grid-template-columns:100vw;
+		grid-template-columns:100%;
 		grid-template-rows:auto auto;
 	}
 	.cell{
-  		font-size: 1em;
+  	font-size: 14px;
 	}
-	.info{
-		border-right: 1px solid #000;
-	}
+	/*.infoCont{
+		font-size: 1.2em;
+	}*/
 	.infoCont{
-		padding-bottom: 0.2em;
-	}
-	.classday .info{
-		border-right: 1px solid #e0d28c;
-	}
-	.classday .rating, .rating{
-		border-right: 0px;
-		-webkit-border-right: 0px;
-	}
-	.notes{
-		padding-top: 0.2em;
-		border-top: 1px solid #000;
-		grid-column: 1/2;
-		grid-row: 2/3;
-	}
-	.classday .notes{
-		border-top: 1px solid #e0d28c;
-	}
-}*/
-
-/* TABLET */
-
-
-/* DESKTOP */
-@media screen and (max-width: 900px) {
-	.row{
-		grid-template-columns:100vw;
-		grid-template-rows:auto auto;
-	}
-	.notes{
-		grid-column: 1/2;
-		grid-row: 2/3;
-		border-top: 1px solid #000;
-	}
-	.classday .notes{
-		border-top: 1px solid #e0d28c;
-	}
-	.cell{
-  		font-size: 1em;
+		/*padding-bottom: var(--spacing);*/
+		border-bottom: 0px;
 	}
 	.info{
-		border-right: 1px solid #000;
+		/*border-right: 1px solid #000;*/
 	}
 	.classday .info{
-		border-right: 1px solid #e0d28c;
+		/*border-right: 1px solid var(--main-color);*/
 	}
 	.classday .rating, .rating{
 		border-right: 0px;
+	}
+	.notes{
+		padding-left: 0;
+		/*padding-top: var(--spacing);*/
+		/*border-top: 1px solid #000;*/
+		grid-column: 1/2;
+		grid-row: 2/3;
+	}
+	.classday .notes{
+		/*border-top: 1px solid var(--main-color);*/
 	}
 }
 
-@media screen and (min-width: 900px){
+@media screen and (min-width: 600px){
 	.row{
-		grid-template-columns:50vw 50vw;
+		grid-template-columns:50% 50%;
 		grid-template-rows: auto;
+	}
+	.cell{
+  		font-size: 14px;
 	}
 	.notes{
 		padding-top: 0;
@@ -191,20 +137,22 @@ a{
 	.infoCont{
 		padding-bottom: 0;
 	}
-	.cell{
-  		font-size: 1.25em;
-	}
 	.info{
 		border-right: 1px solid #000;
 		border-bottom: 0px;
 	}
 	.classday .info{
-		border-right: 1px solid #e0d28c;
+		border-right: 1px solid var(--main-color);
 		border-bottom: 0px;
+	}
+}
+@media screen and (min-width: 900px){
+	.cell{
+		font-size: 18px;
 	}
 }
 @media screen and (min-width: 1200px){
 	.cell{
-  		font-size: 1.5em;
+  		font-size: 24px;
 	}
 }
