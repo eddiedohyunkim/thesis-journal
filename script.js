@@ -1,10 +1,11 @@
+console.log('https://docs.google.com/spreadsheets/d/1gMaEtqWBBgGrBe9BiQ6FQLGkNqxlVLF82aYEipOD1Qk/edit#gid=0')
 const url = 'https://script.googleusercontent.com/macros/echo?user_content_key=o2SaDVYbwX0--rO9_fBkS5Rp9uYr5QF-T39SKMiUCqVBsj1U7J50LkTFJQiUliMHqaiMgRJC2UOb9aDTSq7rMON1k6kWr9yim5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnD3nHksAN6kqtPySdrGnN-NUGF_SBKiQRcFoTgOesBL6GQz51BjwhdegpyN_OzT4rrT7xPxJ9BZKUJvgtV3OVo-neKymxdPvGdz9Jw9Md8uu&lib=MbboU7QvF-8hGwFWiV9ugkR4b90P6tkZ3';
 fetch(url)
 	.then(function(response){return response.json();})
 	.then(function(json){getJournalData(json);})
 
 function getJournalData(data) {
-	console.log(data);
+	// console.log(data);
 	for(let i=0; i<data.length; i+=1){
 		createJournal(data[i], i);
 	}
@@ -53,7 +54,7 @@ function createJournal(x, n){
 
 
 function linkify(inputText) {
-    var replacedText, replacePattern1, replacePattern2, replacePattern3;
+    let replacedText, replacePattern1, replacePattern2, replacePattern3;
 
     //URLs starting with http://, https://, or ftp://
     replacePattern1 = /(\b(https?|ftp):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/gim;
@@ -73,9 +74,8 @@ function linkify(inputText) {
 function findlink() {
 	let html = document.getElementById("journal")
 	let htmlTxt = html.innerHTML;
-	console.log(htmlTxt);
-
-	var replace = linkify(htmlTxt);
+	// console.log(htmlTxt);
+	let replace = linkify(htmlTxt);
 	html.innerHTML = replace;
 }
 
