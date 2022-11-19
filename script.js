@@ -19,7 +19,9 @@ function createJournal(x, n){
 	const dayText = x.Time;
 	x.Rating = x.Rating || 0;
 	const RatingText = `<sup>${x.Rating}</sup> &frasl; <sub>10</sub>`;
-	const noteText = x.Notes;
+	let noteText = x.Notes;
+	// <li> tag
+	noteText = replaceAll(noteText, '- ', '<li>');
 
 	const row = document.createElement('div');
 	row.setAttribute('id','row'+n);
@@ -59,15 +61,15 @@ function linkify(inputText) {
 
     //URLs starting with http://, https://, or ftp://
     replacePattern1 = /(\b(https?|ftp):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/gim;
-    replacedText = inputText.replace(replacePattern1, '<a href="$1" target="_blank"><i>$1</i></a><span class="link">(open)</span>');
+    replacedText = inputText.replace(replacePattern1, '<a href="$1" target="_blank"><i>$1</i></a><span class="link"></span>');
 
     //URLs starting with "www." (without // before it, or it'd re-link the ones done above).
     replacePattern2 = /(^|[^\/])(www\.[\S]+(\b|$))/gim;
-    replacedText = replacedText.replace(replacePattern2, '$1<a href="http://$2" target="_blank">$2></a><span class="link">(open)</span>');
+    replacedText = replacedText.replace(replacePattern2, '$1<a href="http://$2" target="_blank">$2></a><span class="link"></span>');
 
     //Change email addresses to mailto:: links.
     replacePattern3 = /(([a-zA-Z0-9\-\_\.])+@[a-zA-Z\_]+?(\.[a-zA-Z]{2,6})+)/gim;
-    replacedText = replacedText.replace(replacePattern3, '<a href="mailto:$1">$1</a><span class="link">(open)</span>');
+    replacedText = replacedText.replace(replacePattern3, '<a href="mailto:$1">$1</a><span class="link"></span>');
 
     return replacedText;
 }
@@ -80,3 +82,9 @@ function findlink() {
 	html.innerHTML = replace;
 }
 
+function replaceAll(str, find, replace) {
+  return str.replace(new RegExp(escapeRegExp(find), 'g'), replace);
+}
+function escapeRegExp(string) {
+  return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); // $& means the whole matched string
+}
