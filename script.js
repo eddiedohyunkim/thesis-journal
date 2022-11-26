@@ -3,6 +3,7 @@ const url = 'https://script.googleusercontent.com/macros/echo?user_content_key=o
 fetch(url)
 	.then(function(response){return response.json();})
 	.then(function(json){getJournalData(json);})
+  
 
 function getJournalData(data) {
 	// console.log(data);
@@ -13,45 +14,45 @@ function getJournalData(data) {
 }
 
 function createJournal(x, n){
-	const getInitial = x.Day.slice(0, 3);
-	const getDate = x.Date; 
-	const dateText = getInitial+', '+getDate;
-	const dayText = x.Time;
+	const getDay = whatDay(x.Date);
+	const dateText = getDay+', '+x.Date;
+	const dayText = dayCounter(x.Date);
 	x.Rating = x.Rating || 0;
 	const RatingText = `<sup>${x.Rating}</sup> &frasl; <sub>10</sub>`;
 	let noteText = x.Notes;
+
 	// <li> tag
+	noteText = replaceAll(noteText, '--', '</li>');
 	noteText = replaceAll(noteText, '- ', '<li>');
 
 	const row = document.createElement('div');
-	row.setAttribute('id','row'+n);
-	let friday = dateText.startsWith('F');
-	friday ? row.setAttribute('class','row classday') : row.setAttribute('class','row')
+	row.id = 'row'+n;
+	getDay=='Fri' ? row.className = 'row classday' : row.className='row'// check if today is Friday
 	document.getElementById('journal').appendChild(row);
 
 	const infoCont = document.createElement('div');
-	infoCont.setAttribute('id',`row${n}infoCont`);
-	infoCont.setAttribute('class','infoCont');
+	infoCont.id = `row${n}infoCont`;
+	infoCont.className = 'infoCont';
 	document.getElementById('row'+n).appendChild(infoCont);
 	
 	const date = document.createElement('div');
 	date.innerHTML = dateText;
-	date.setAttribute('class', 'cell info date');
+	date.className = 'cell info date';
 	document.getElementById(`row${n}infoCont`).appendChild(date);
 	
 	const day = document.createElement('div');
 	day.innerHTML = dayText;
-	day.setAttribute('class', 'cell info day');
+	day.className = 'cell info day';
 	document.getElementById(`row${n}infoCont`).appendChild(day);
 	
 	const rating = document.createElement('div');
 	rating.innerHTML = RatingText;
-	rating.setAttribute('class', 'cell info rating');
+	rating.className = 'cell info rating';
 	document.getElementById(`row${n}infoCont`).appendChild(rating);
 	
 	const notes = document.createElement('div');
 	notes.innerHTML = noteText;
-	notes.setAttribute('class', 'cell notes');
+	notes.className = 'cell notes';
 	document.getElementById('row'+n).appendChild(notes);	
 }
 
@@ -87,4 +88,27 @@ function replaceAll(str, find, replace) {
 }
 function escapeRegExp(string) {
   return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); // $& means the whole matched string
+}
+
+// get day from date
+function whatDay(date){ 
+	date = format(date);
+	return date.toLocaleDateString('en-US', { weekday: 'short' } ) 
+};
+
+function format(string){
+  let indiv = string.split('/');
+	let y = indiv[2];
+	let m = indiv[0]-1;
+	let d = indiv[1];
+	return new Date(y, m, d);
+}
+
+// count weeks and days since the first day of thesis
+function dayCounter(date){
+	let then = format('09/02/2022');
+	let now = format(date);
+	let dayPassed = Math.round( Math.abs( (now - then) / (1000 * 60 * 60 * 24) ) )+1;
+	let weekPassed = Math.ceil(dayPassed/7);
+	return `Week ${weekPassed}, Day ${dayPassed}`;
 }

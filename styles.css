@@ -1,5 +1,5 @@
 :root {
-  --main-color: #e0d28c;
+  --main-color: #e0d290;
   --spacing: 0.3em;
 }
 body {
@@ -46,6 +46,23 @@ a{
 	cursor: pointer;
 	text-decoration: none;
 }
+li {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style: none;
+  counter-increment: foo;
+  display: table-row;
+}
+
+li::before {
+  content: "•";
+  display: table-cell;
+  text-align: right;
+  padding-right: 0.3em;
+}
+
 
 @media screen and (max-width: 600px){
 	.infoCont{
