@@ -26,37 +26,30 @@ function createJournal(x, n){
 	noteText = replaceAll(noteText, '- ', '<li>');
 
 	const row = document.createElement('div');
-	row.id = 'row'+n;
 	getDay=='Fri' ? row.className = 'row classday' : row.className='row'// check if today is Friday
 	document.getElementById('journal').appendChild(row);
 
 	const infoCont = document.createElement('div');
-	infoCont.id = `row${n}infoCont`;
 	infoCont.className = 'infoCont';
-	document.getElementById('row'+n).appendChild(infoCont);
-	
-	const date = document.createElement('div');
-	date.innerHTML = dateText;
-	date.className = 'cell info date';
-	document.getElementById(`row${n}infoCont`).appendChild(date);
-	
-	const day = document.createElement('div');
-	day.innerHTML = dayText;
-	day.className = 'cell info day';
-	document.getElementById(`row${n}infoCont`).appendChild(day);
-	
-	const rating = document.createElement('div');
-	rating.innerHTML = RatingText;
-	rating.className = 'cell info rating';
-	document.getElementById(`row${n}infoCont`).appendChild(rating);
+	row.appendChild(infoCont);
+
+	const infoContChildren = [ [dateText,'date'], [dayText,'day'], [RatingText,'rating'] ];
+	const infoContFrag = new DocumentFragment();
+	for (const childInfo of infoContChildren) {
+  	let fragment = document.createElement('div');
+  	fragment.innerHTML = childInfo[0];
+  	fragment.className = 'cell info '+childInfo[1];
+  	infoContFrag.append(fragment);
+	}
+	infoCont.append(infoContFrag);
 	
 	const notes = document.createElement('div');
 	notes.innerHTML = noteText;
 	notes.className = 'cell notes';
-	document.getElementById('row'+n).appendChild(notes);	
+	row.appendChild(notes);	
 }
 
-
+// function createElem(tag, )
 function linkify(inputText) {
     let replacedText, replacePattern1, replacePattern2, replacePattern3;
 
