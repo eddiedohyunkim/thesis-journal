@@ -2,18 +2,9 @@ console.log('https://docs.google.com/spreadsheets/d/1gMaEtqWBBgGrBe9BiQ6FQLGkNqx
 const url = 'https://script.googleusercontent.com/macros/echo?user_content_key=o2SaDVYbwX0--rO9_fBkS5Rp9uYr5QF-T39SKMiUCqVBsj1U7J50LkTFJQiUliMHqaiMgRJC2UOb9aDTSq7rMON1k6kWr9yim5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnD3nHksAN6kqtPySdrGnN-NUGF_SBKiQRcFoTgOesBL6GQz51BjwhdegpyN_OzT4rrT7xPxJ9BZKUJvgtV3OVo-neKymxdPvGdz9Jw9Md8uu&lib=MbboU7QvF-8hGwFWiV9ugkR4b90P6tkZ3';
 fetch(url)
 	.then(function(response){return response.json();})
-	.then(function(json){getJournalData(json);})
-  
+	.then(function(json){ for(const entry of json){ createJournal(entry); } })
 
-function getJournalData(data) {
-	// console.log(data);
-	for(let i=0; i<data.length; i+=1){
-		createJournal(data[i], i);
-	}
-	findlink()
-}
-
-function createJournal(x, n){
+function createJournal(x){
 	const getDay = whatDay(x.Date);
 	const dateText = getDay+', '+x.Date;
 	const dayText = dayCounter(x.Date);
@@ -44,12 +35,18 @@ function createJournal(x, n){
 	infoCont.append(infoContFrag);
 	
 	const notes = document.createElement('div');
-	notes.innerHTML = noteText;
+	notes.innerHTML = noteFormat(noteText);
 	notes.className = 'cell notes';
 	row.appendChild(notes);	
 }
 
-// function createElem(tag, )
+function noteFormat(rawString){
+	rawString = linkify(rawString);
+	// here add more note formatting functions later
+	return rawString
+}
+
+
 function linkify(inputText) {
     let replacedText, replacePattern1, replacePattern2, replacePattern3;
 
@@ -68,14 +65,6 @@ function linkify(inputText) {
     return replacedText;
 }
 
-function findlink() {
-	let html = document.getElementById("journal")
-	let htmlTxt = html.innerHTML;
-	// console.log(htmlTxt);
-	let replace = linkify(htmlTxt);
-	html.innerHTML = replace;
-}
-
 function replaceAll(str, find, replace) {
   return str.replace(new RegExp(escapeRegExp(find), 'g'), replace);
 }
@@ -85,11 +74,11 @@ function escapeRegExp(string) {
 
 // get day from date
 function whatDay(date){ 
-	date = format(date);
+	date = dateFormat(date);
 	return date.toLocaleDateString('en-US', { weekday: 'short' } ) 
 };
 
-function format(string){
+function dateFormat(string){
   let indiv = string.split('/');
 	let y = indiv[2];
 	let m = indiv[0]-1;
@@ -99,9 +88,9 @@ function format(string){
 
 // count weeks and days since the first day of thesis
 function dayCounter(date){
-	let then = format('09/02/2022');
-	let now = format(date);
-	let dayPassed = Math.round( Math.abs( (now - then) / (1000 * 60 * 60 * 24) ) )+1;
+	let from = dateFormat('09/02/2022');
+	let now = dateFormat(date);
+	let dayPassed = Math.round( Math.abs( (now - from) / (1000 * 60 * 60 * 24) ) )+1;
 	let weekPassed = Math.ceil(dayPassed/7);
 	return `Week ${weekPassed}, Day ${dayPassed}`;
 }
