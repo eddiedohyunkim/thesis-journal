@@ -108,7 +108,7 @@ li::before {
 
 @media screen and (max-width: 600px){
 	#journal{
-  	font-size: 18px;
+  	font-size: 14px;
 	}
 	.infoCont{
 		/*grid-template-columns: repeat(3, minmax(min-content, max-content));*/
