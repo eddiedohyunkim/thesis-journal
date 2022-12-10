@@ -4,20 +4,17 @@ fetch(url)
 	.then(function(response){return response.json();})
 	.then(function(json){ for(const entry of json){ createJournal(entry); } })
 
-function createJournal(x){
-	const getDay = whatDay(x.Date);
-	const dateText = getDay+', '+x.Date;
-	const dayText = dayCounter(x.Date);
-	x.Rating = x.Rating || 0;
-	const RatingText = `<sup>${x.Rating}</sup> &frasl; <sub>10</sub>`;
-	let noteText = x.Notes;
-
-	// <li> tag
-	noteText = replaceAll(noteText, '--', '</li>');
-	noteText = replaceAll(noteText, '- ', '<li>');
+function createJournal(j){
+	const getDay = whatDay(j.Date);
+	const dateText = getDay+', '+j.Date;
+	const dayText = dayCounter(j.Date);
+	j.Rating = j.Rating || 0;
+	const RatingText = `${j.Rating} &frasl; 10`;
+	let noteText = j.Notes;
 
 	const row = document.createElement('div');
-	getDay=='Fri' ? row.className = 'row classday' : row.className='row'// check if today is Friday
+	// getDay=='Fri' ? row.className = 'row classday' : row.className='row'// check if today is Friday
+	row.className='row'
 	document.getElementById('journal').appendChild(row);
 
 	const infoCont = document.createElement('div');
@@ -41,18 +38,26 @@ function createJournal(x){
 }
 
 function noteFormat(rawString){
-	rawString = linkify(rawString);
+	rawString = listfy(rawString);
+	rawString = addTabs(rawString);
 	// here add more note formatting functions later
-	return rawString
+
+	rawString = linkify(rawString);
+	return rawString;
 }
 
+function listfy(inputText) {
+	inputText = replaceAll(inputText, '--', '</li>');
+	inputText = replaceAll(inputText, '- ', '<li>');
+	return inputText;
+}
 
 function linkify(inputText) {
     let replacedText, replacePattern1, replacePattern2, replacePattern3;
 
     //URLs starting with http://, https://, or ftp://
     replacePattern1 = /(\b(https?|ftp):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/gim;
-    replacedText = inputText.replace(replacePattern1, '<a href="$1" target="_blank"><i>$1</i></a><span class="link"></span>');
+    replacedText = inputText.replace(replacePattern1, '<a href="$1" target="_blank">$1</a><span class="link"></span>');
 
     //URLs starting with "www." (without // before it, or it'd re-link the ones done above).
     replacePattern2 = /(^|[^\/])(www\.[\S]+(\b|$))/gim;
@@ -63,6 +68,11 @@ function linkify(inputText) {
     replacedText = replacedText.replace(replacePattern3, '<a href="mailto:$1">$1</a><span class="link"></span>');
 
     return replacedText;
+}
+
+function addTabs(inputText){
+	inputText = replaceAll(inputText, '<tab>', '<span class="tab"></span>');
+	return inputText;
 }
 
 function replaceAll(str, find, replace) {

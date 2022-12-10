@@ -1,20 +1,59 @@
-:root {
-  --main-color: #e0d290;
-  --spacing: 0.3em;
+:root{
+/*  --main-color: #e0d290;*/
+/*  --main-color: #eee; */
+  --main-color: gainsboro;
+  --spacing: 0.7em;
 }
-body {
-	line-height: 1.2;
-	background-color: var(--main-color);
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+@font-face {
+font-family:"neue-haas-grotesk-display";
+src:url("https://use.typekit.net/af/1ba16c/00000000000000007735bb5a/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n5&v=3") format("woff2"),url("https://use.typekit.net/af/1ba16c/00000000000000007735bb5a/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n5&v=3") format("woff"),url("https://use.typekit.net/af/1ba16c/00000000000000007735bb5a/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n5&v=3") format("opentype");
+font-display:auto;font-style:normal;font-weight:500;font-stretch:normal;
+}
+
+@font-face{
+  font-family: myriad-italic;
+  src: url(assets/MyriadPro-It.otf);
+}
+
+@font-face{
+  font-family: myriad-light;
+  src: url(assets/myriadpro-light-webfont.woff);
+}
+
+
+
+
+@font-face{
+	font-family: freeSans-regular;
+	src: url(assets/freeSans-20120503-woff/FreeSans.woff);
+}
+
+@font-face{
+	font-family: freeSans-italic;
+	src: url(assets/freeSans-20120503-woff/FreeSansOblique.woff);
+}
+
+body{
+	font-family: freeSans-regular;
+	line-height: 1.5;
+	margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: 1200px;
+  font-size: 1rem;
 }
 #journal{
 	width: 100%;
+	
+	letter-spacing: 0.02rem;
+	border: 1px solid black;
+	box-sizing: border-box;
 }
 .row{
 	display: grid;
+	box-sizing: border-box;
 	border-bottom: 1px solid #000;
-	padding: var(--spacing);
+	padding: 0.5rem 0.7rem;
 }
 .cell{
   word-wrap: break-word;
@@ -26,6 +65,7 @@ body {
 	background-color: #000;
 	color: var(--main-color);
 }
+
 .infoCont{
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
@@ -38,10 +78,10 @@ body {
 	padding-left: 0;
 }
 .link{
-	font-family: inherit, arial;
 	padding-left: 0.1em;
 }
 a{
+	font-family: freeSans-italic;
 	color: inherit;
 	cursor: pointer;
 	text-decoration: none;
@@ -55,16 +95,21 @@ li {
   counter-increment: foo;
   display: table-row;
 }
-
 li::before {
   content: "•";
   display: table-cell;
   text-align: right;
   padding-right: 0.3em;
 }
+.tab{
+	margin-left:1em;
+}
 
 
 @media screen and (max-width: 600px){
+	#journal{
+  	font-size: 18px;
+	}
 	.infoCont{
 		/*grid-template-columns: repeat(3, minmax(min-content, max-content));*/
 		grid-template-columns: repeat(3, max-content);
@@ -80,9 +125,7 @@ li::before {
 		grid-template-columns:100%;
 		grid-template-rows:auto auto;
 	}
-	.cell{
-  	font-size: 14px;
-	}
+	
 	.infoCont{
 		border-bottom: 0px;
 	}
@@ -97,15 +140,17 @@ li::before {
 }
 
 @media screen and (min-width: 600px){
+	#journal{
+  	font-size: 14px;
+  	margin-top:1rem;
+	}
 	.row{
 		grid-template-columns:repeat(2, 50%);
 		grid-template-rows: auto;
 	}
-	.cell{
-  		font-size: 14px;
-	}
 	.notes{
 		padding-top: 0;
+		padding-right: 0;
 		grid-column: 2/3;
 		grid-row: 1/2;
 		border-top: 0px;
@@ -117,7 +162,7 @@ li::before {
 		padding-bottom: 0;
 	}
 	.info{
-		border-right: 1px solid #000;
+/*		border-right: 1px solid #000;*/
 		border-bottom: 0px;
 	}
 	.classday .info{
@@ -127,13 +172,14 @@ li::before {
 }
 
 @media screen and (min-width: 900px){
-	.cell{
-		font-size: 18px;
+	#journal{
+		font-size: 20px;
+		margin-top:1rem;
 	}
 }
 
-@media screen and (min-width: 1200px){
-	.cell{
-  		font-size: 24px;
+/*@media screen and (min-width: 1200px){
+	#journal{
+  		font-size: 20px;
 	}
-}
+}*/
