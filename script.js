@@ -63,10 +63,6 @@ function linkify(inputText) {
     replacePattern2 = /(^|[^\/])(www\.[\S]+(\b|$))/gim;
     replacedText = replacedText.replace(replacePattern2, '$1<a href="http://$2" target="_blank">$2></a><span class="link"></span>');
 
-    //Change email addresses to mailto:: links.
-    replacePattern3 = /(([a-zA-Z0-9\-\_\.])+@[a-zA-Z\_]+?(\.[a-zA-Z]{2,6})+)/gim;
-    replacedText = replacedText.replace(replacePattern3, '<a href="mailto:$1">$1</a><span class="link"></span>');
-
     return replacedText;
 }
 
@@ -102,5 +98,5 @@ function dayCounter(date){
 	let now = dateFormat(date);
 	let dayPassed = Math.round( Math.abs( (now - from) / (1000 * 60 * 60 * 24) ) )+1;
 	let weekPassed = Math.ceil(dayPassed/7);
-	return `Week ${weekPassed}, Day ${dayPassed}`;
+	return `Week ${weekPassed}, <span class='nobr'>Day ${dayPassed}</span>`;
 }
