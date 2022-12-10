@@ -1,13 +1,12 @@
 :root{
-  --main-color: gainsboro;
-  --spacing: 0.75em;
+  --verPadding: 0.5em;
+  --horiPadding: 0.75em;
 }
 
 @font-face{
 	font-family: freeSans-regular;
 	src: url(assets/freeSans-20120503-woff/FreeSans.woff);
 }
-
 @font-face{
 	font-family: freeSans-italic;
 	src: url(assets/freeSans-20120503-woff/FreeSansOblique.woff);
@@ -16,52 +15,37 @@
 body{
 	font-family: freeSans-regular;
 	width: 100%;
-	max-width: 1240px;
-	line-height: 1.5;
-	letter-spacing: 0.02rem;
-	
-	border-bottom: 0px solid transparent;
-	box-sizing: border-box;
+	max-width: 1260px;
 }
 #journal{
-	margin:1em;
+	margin: 1em;
 	border: 1px solid black;
-	border-bottom: none;
+	border-bottom: 0;
+	line-height: 1.5;
+	letter-spacing: 0.02rem;
 }
-
 .row{
 	display: grid;
-	box-sizing: border-box;
 	border-bottom: 1px solid #000;
-	padding: 0.5rem 0.75rem;
+	padding: var(--verPadding) var(--horiPadding);
 }
 .cell{
   word-wrap: break-word;
-  padding-left: var(--spacing);
-  padding-right: var(--spacing);
+  padding-left: var(--horiPadding);
+  padding-right: var(--horiPadding);
   box-sizing: border-box;
 }
 .classday{
-	background-color: #000;
-	color: var(--main-color);
+
 }
 
 .infoCont{
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
-	grid-template-rows: auto;
-}
-.date, .day{
-  letter-spacing: 0.02em;
-/*  white-space:nowrap;*/
 }
 .nobr { white-space:nowrap; }
-.date{
-	padding-left: 0;
-}
-.link{
-	padding-left: 0.1em;
-}
+.date{ padding-left: 0; }
+
 a{
 	font-family: freeSans-italic;
 	color: inherit;
@@ -87,35 +71,22 @@ li::before {
 	margin-left:1em;
 }
 
-
 @media screen and (max-width: 600px){
 	body{
   	font-size: 13px;
-	}
-	.infoCont{
-		/*grid-template-columns: repeat(3, minmax(min-content, max-content));*/
-		grid-template-columns: repeat(3, max-content);
-		justify-self: center;
-		text-align: center;
-		/*gap: 1em;*/
-		gap: 5vw;
-	}
-	.infoCont .cell{
-		padding: 0;
 	}
 	.row{
 		grid-template-columns:100%;
 		grid-template-rows:auto auto;
 	}
-	
 	.infoCont{
-		border-bottom: 0px;
+		grid-template-columns: repeat(3, max-content);
+		margin: auto;
+		text-align: center;
+		gap: 1em;
 	}
-	.classday .rating, .rating{
-		border-right: 0px;
-	}
+	.cell{ padding: 0; }
 	.notes{
-		padding: 0;
 		grid-column: 1/2;
 		grid-row: 2/3;
 	}
@@ -124,41 +95,22 @@ li::before {
 @media screen and (min-width: 600px){
 	body{
   	font-size: 14px;
-/*  	margin-left: auto;*/
-/*		margin-right: auto;*/
+  	margin-left: auto;
+		margin-right: auto;
 	}
 	.row{
 		grid-template-columns:repeat(2, 50%);
 		grid-template-rows: auto;
 	}
 	.notes{
-		padding-top: 0;
 		padding-right: 0;
 		grid-column: 2/3;
 		grid-row: 1/2;
-		border-top: 0px;
-	}
-	.classday .notes{
-		border-top: 0px;
-	}
-	.infoCont{
-		padding-bottom: 0;
-	}
-	.info{
-/*		border-right: 1px solid #000;*/
-		border-bottom: 0px;
-	}
-	.classday .info{
-		border-right: 1px solid var(--main-color);
-		border-bottom: 0px;
 	}
 }
 
 @media screen and (min-width: 900px){
 	body{
 		font-size: 20px;
-/*		margin: 1em;*/
-		margin-left: auto;
-		margin-right: auto;
 	}
 }

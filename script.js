@@ -9,7 +9,7 @@ function createJournal(j){
 	const dateText = getDay+', '+j.Date;
 	const dayText = dayCounter(j.Date);
 	j.Rating = j.Rating || 0;
-	const RatingText = `${j.Rating} &frasl; 10`;
+	const RatingText = `${j.Rating} &frasl; 5`;
 	let noteText = j.Notes;
 
 	const row = document.createElement('div');
@@ -24,14 +24,14 @@ function createJournal(j){
 	const infoContChildren = [ [dateText,'date'], [dayText,'day'], [RatingText,'rating'] ];
 	const infoContFrag = new DocumentFragment();
 	for (const childInfo of infoContChildren) {
-  	let fragment = document.createElement('div');
+  	let fragment = document.createElement('p');
   	fragment.innerHTML = childInfo[0];
   	fragment.className = 'cell info '+childInfo[1];
   	infoContFrag.append(fragment);
 	}
 	infoCont.append(infoContFrag);
 	
-	const notes = document.createElement('div');
+	const notes = document.createElement('p');
 	notes.innerHTML = noteFormat(noteText);
 	notes.className = 'cell notes';
 	row.appendChild(notes);	
@@ -56,12 +56,12 @@ function linkify(inputText) {
     let replacedText, replacePattern1, replacePattern2, replacePattern3;
 
     //URLs starting with http://, https://, or ftp://
-    replacePattern1 = /(\b(https?|ftp):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/gim;
-    replacedText = inputText.replace(replacePattern1, '<a href="$1" target="_blank">$1</a><span class="link"></span>');
+    replacePattern1 = /(\b(https?|ftp):\/\/[-A-Z0-9+&@#()\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/gim;
+    replacedText = inputText.replace(replacePattern1, '<a href="$1" target="_blank">$1</a>');
 
     //URLs starting with "www." (without // before it, or it'd re-link the ones done above).
     replacePattern2 = /(^|[^\/])(www\.[\S]+(\b|$))/gim;
-    replacedText = replacedText.replace(replacePattern2, '$1<a href="http://$2" target="_blank">$2></a><span class="link"></span>');
+    replacedText = replacedText.replace(replacePattern2, '$1<a href="http://$2" target="_blank">$2></a>');
 
     return replacedText;
 }
