@@ -22,7 +22,7 @@ function createJournal(j){
 	row.appendChild(infoCont);
 
 	const noteCont = document.createElement('div');
-	noteCont.className = 'cell notes';
+	noteCont.className = 'cell noteCont';
 	row.appendChild(noteCont);
 
 	const infoContChildren = [ [dateText,'date'], [dayText,'day'], [RatingText,'rating'] ];
