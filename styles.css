@@ -85,23 +85,6 @@ p{
 	.cell{ padding: 0; }
 }
 
-@media all and (max-width: 900px), screen and (orientation: landscape) {
-  body{
-    font-size: 13px;
-  }
-  .row{
-		grid-template-columns:100%;
-		grid-template-rows:auto auto;
-	}
-	.infoCont{
-		grid-template-columns: repeat(3, max-content);
-		margin: auto;
-		text-align: center;
-		gap: 1em;
-	}
-	.cell{ padding: 0; }
-}
-
 
 
 
