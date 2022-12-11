@@ -96,7 +96,7 @@ li::before {
 
 @media all and (max-width: 800px) {
   body{
-    font-size: 13px;
+    font-size: 5px;
   }
   .row{
 		grid-template-columns:100%;
