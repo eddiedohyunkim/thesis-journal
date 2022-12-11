@@ -1,3 +1,6 @@
+html{ font-size: 20px; }
+@media all and (max-width: 1400px) { html{ font-size: 17px; } }
+@media all and (max-width: 900px) { html{ font-size: 13px; } }
 :root{
   --verPadding: 0.5em;
   --horiPadding: 0.75em;
@@ -7,7 +10,6 @@ html {
   -moz-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
 }
-
 @font-face{
 	font-family: freeSans-regular;
 	src: url(assets/freeSans-20120503-woff/FreeSans.woff);
@@ -16,35 +18,17 @@ html {
 	font-family: freeSans-italic;
 	src: url(assets/freeSans-20120503-woff/FreeSansOblique.woff);
 }
-
-
+*{
+	margin: 0;
+	padding: 0;
+}
 body{
-	font-family: freeSans-regular;
-	font-size: 20px;
+	font-family: freeSans-regular, sans-serif;
 	width: 100%;
 	max-width: 1260px;
 	margin-left: auto;
 	margin-right: auto;
 }
-
-@media all and (max-width: 1400px) {
-	body{
-		font-size: 17px;
-  }
-}
-
-@media all and (max-width: 900px) {
-	body{
-		font-size: 13px;
-	}
-}
-
-p{
-	margin:0;
-	padding:0;
-	font-size: 1em;
-}
-
 #journal{
 	margin: 1em;
 	border: 1px solid black;
@@ -52,21 +36,31 @@ p{
 	line-height: 1.5;
 	letter-spacing: 0.02em;
 }
+#title{
+	text-align: center;
+	border-bottom: 1px solid #000;
+	padding: var(--verPadding) var(--horiPadding);
+}
 .row{
 	display: grid;
 	border-bottom: 1px solid #000;
 	padding: var(--verPadding) var(--horiPadding);
 }
-
-
 .row{
 	grid-template-columns:repeat(2, 50%);
 	grid-template-rows: auto;
 }
+a{
+	font-family: freeSans-italic;
+	color: inherit;
+	cursor: pointer;
+	text-decoration: none;
+}
+
 @media all and (max-width: 900px) {
 	.row{
-		grid-template-columns:100%;
-		grid-template-rows:auto auto;
+		grid-template-columns: 100%;
+		grid-template-rows: auto auto;
 	}
 }
 
@@ -108,7 +102,6 @@ p{
 	
 	
 	
-}
 
 
 
@@ -116,12 +109,7 @@ p{
 
 
 
-/*a{
-	font-family: freeSans-italic;
-	color: inherit;
-	cursor: pointer;
-	text-decoration: none;
-}
+
 li {
   margin: 0;
   padding: 0;
@@ -139,4 +127,4 @@ li::before {
 }
 .tab{
 	margin-left:1em;
-}*/
+}
