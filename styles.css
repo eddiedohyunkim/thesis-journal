@@ -89,7 +89,7 @@ li::before {
 
 @media all and (max-width: 800px) {
   body, #journal, .cell{
-    font-size: 5px;
+    font-size: 13px;
   }
   .row{
 		grid-template-columns:100%;
