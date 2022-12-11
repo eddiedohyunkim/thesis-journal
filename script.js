@@ -21,9 +21,6 @@ function createJournal(j){
 	infoCont.className = 'infoCont';
 	row.appendChild(infoCont);
 
-	const noteCont = document.createElement('div');
-	noteCont.className = 'cell noteCont';
-	row.appendChild(noteCont);
 
 	const infoContChildren = [ [dateText,'date'], [dayText,'day'], [RatingText,'rating'] ];
 	const infoContFrag = new DocumentFragment();
@@ -36,8 +33,9 @@ function createJournal(j){
 	infoCont.append(infoContFrag);
 	
 	const notes = document.createElement('p');
+	notes.className = 'cell note';
 	notes.innerHTML = noteFormat(noteText);
-	noteCont.appendChild(notes);	
+	row.appendChild(notes);	
 }
 
 function noteFormat(rawString){
