@@ -85,7 +85,7 @@ p{
 	.cell{ padding: 0; }
 }
 
-@media all and (max-width: 900px), screen and (orientation: landscape {
+@media all and (max-width: 900px), screen and (orientation: landscape) {
   body{
     font-size: 13px;
   }
