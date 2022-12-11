@@ -20,7 +20,7 @@ body{
 	margin-right: auto;
 }
 
-body, #journal, .cell{
+body, #journal, .notes{
     font-size: 20px;
 }
 
@@ -82,13 +82,13 @@ li::before {
 }
 
 @media all and (max-width: 1400px) {
-  body, #journal, .cell{
+  body, #journal, .notes{
     font-size: 17px;
   }
 }
 
 @media all and (max-width: 900px) {
-  body, #journal, .cell{
+  body, #journal, .notes{
     font-size: 13px;
   }
   .row{
