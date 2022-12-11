@@ -87,7 +87,7 @@ li::before {
   }
 }
 
-@media all and (max-width: 800px) {
+@media all and (max-width: 900px) {
   body, #journal, .cell{
     font-size: 13px;
   }
