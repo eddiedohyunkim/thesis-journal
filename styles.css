@@ -21,6 +21,19 @@ body{
 	margin-left: auto;
 	margin-right: auto;
 }
+
+@media all and (max-width: 1400px) {
+  body{
+    font-size: 17px;
+  }
+}
+
+@media all and (max-width: 900px) {
+	body{
+	  font-size: 13px;
+	}
+}
+
 p{
 	margin:0;
 	padding:0;
@@ -39,9 +52,17 @@ p{
 	border-bottom: 1px solid #000;
 	padding: var(--verPadding) var(--horiPadding);
 }
+
+
 .row{
 	grid-template-columns:repeat(2, 50%);
 	grid-template-rows: auto;
+}
+@media all and (max-width: 900px) {
+	.row{
+		grid-template-columns:100%;
+		grid-template-rows:auto auto;
+	}
 }
 
 .cell{
@@ -50,6 +71,12 @@ p{
   padding-right: var(--horiPadding);
   box-sizing: border-box;
 }
+@media all and (max-width: 900px) {
+	.cell{ 
+		padding: 0; 
+	}
+}
+
 .noteCont{
 	padding-right: 0;
 }
@@ -57,32 +84,25 @@ p{
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 }
-.nobr { white-space:nowrap; }
-.date{ padding-left: 0; }
-
-
-
-/*@media all and (max-width: 1400px) {
-  body{
-    font-size: 17px;
-  }
-}*/
-
 @media all and (max-width: 900px) {
-	body{
-	  font-size: 13px;
-	}
-	.row{
-		grid-template-columns:100%;
-		grid-template-rows:auto auto;
-	}
 	.infoCont{
 		grid-template-columns: repeat(3, max-content);
 		margin: auto;
 		text-align: center;
 		gap: 1em;
 	}
-	.cell{ padding: 0; }
+}
+.nobr { white-space:nowrap; }
+.date{ padding-left: 0; }
+
+
+
+
+
+
+	
+	
+	
 }
 
 
