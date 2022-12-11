@@ -62,17 +62,17 @@ p{
 
 
 
-@media all and (max-width: 1400px) {
+/*@media all and (max-width: 1400px) {
   body{
     font-size: 17px;
   }
-}
+}*/
 
 @media all and (max-width: 900px) {
-  body{
-    font-size: 13px;
-  }
-  .row{
+	body{
+	  font-size: 13px;
+	}
+	.row{
 		grid-template-columns:100%;
 		grid-template-rows:auto auto;
 	}
