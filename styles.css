@@ -82,6 +82,8 @@ body{
 	.infoCont{
 		grid-template-columns: repeat(3, 1fr);
 		font-size: 83.3333%;
+		text-align: center;
+		gap:0.5em;
 /*		padding:0 1em;*/
 	}
 }
