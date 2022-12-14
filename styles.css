@@ -69,15 +69,20 @@ body{
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 }
-@media all and (max-width: 750px) {
+/*@media all and (max-width: 750px) {
 	.infoCont{
 		grid-template-columns: repeat(3, max-content);
 		margin: auto;
-/*		padding-bottom: calc(var(--verPadding)/2);*/
-/*		padding-bottom: calc(var(--verPadding)/1);*/
-/*		border-bottom: 1px solid black;*/
 		text-align: center;
 		gap: 1em;
+	}
+}*/
+
+@media all and (max-width: 750px) {
+	.infoCont{
+		grid-template-columns: repeat(3, 1fr);
+		font-size: 83.3333%;
+/*		padding:0 1em;*/
 	}
 }
 
