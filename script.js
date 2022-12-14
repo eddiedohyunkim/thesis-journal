@@ -5,15 +5,16 @@ fetch(url)
 	.then(function(json){ for(const entry of json){ createJournal(entry); } })
 
 function createJournal(j){
-	const dateText = whatDay(j.Date)+', '+j.Date;
+	const getDay = whatDay(j.Date);
+	const dateText = getDay+', '+j.Date;
 	const dayText = dayCounter(j.Date);
 	j.Rating = j.Rating || 0;
 	const RatingText = `${j.Rating} &frasl; 5`;
 	let noteText = j.Notes;
 
 	const row = document.createElement('div');
-	// getDay=='Fri' ? row.className = 'row classday' : row.className='row'// check if today is Friday
-	row.className='row'
+	getDay=='Fri' ? row.className = 'row classday' : row.className='row'// check if today is Friday
+	// row.className='row'
 	document.getElementById('journal').appendChild(row);
 
 	const infoCont = document.createElement('div');
