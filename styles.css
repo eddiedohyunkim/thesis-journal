@@ -37,7 +37,7 @@ body{
 	margin: 1em;
 	border: 1px solid #000;
 	border-bottom: 0;
-	line-height: 1.25;
+	line-height: 1.4;
 	letter-spacing: 0.015em;
 }
 #title{
@@ -74,6 +74,9 @@ body{
 	.infoCont{
 		grid-template-columns: repeat(3, max-content);
 		margin: auto;
+/*		padding-bottom: calc(var(--verPadding)/2);*/
+/*		padding-bottom: calc(var(--verPadding)/1);*/
+/*		border-bottom: 1px solid black;*/
 		text-align: center;
 		gap: 1em;
 	}
