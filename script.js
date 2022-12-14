@@ -5,8 +5,7 @@ fetch(url)
 	.then(function(json){ for(const entry of json){ createJournal(entry); } })
 
 function createJournal(j){
-	const getDay = whatDay(j.Date);
-	const dateText = getDay+', '+j.Date;
+	const dateText = whatDay(j.Date)+', '+j.Date;
 	const dayText = dayCounter(j.Date);
 	j.Rating = j.Rating || 0;
 	const RatingText = `${j.Rating} &frasl; 5`;

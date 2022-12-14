@@ -1,15 +1,15 @@
-html{ font-size: 20px; }
-@media all and (max-width: 1400px) { html{ font-size: 17px; } }
+html{ font-size: 18px; }
+@media all and (max-width: 1400px) { html{ font-size: 15px; } }
 @media all and (max-width: 900px) { html{ font-size: 13px; } }
 :root{
-  --verPadding: 0.5em;
-  --horiPadding: 0.75em;
+  --verPadding: 0.4em;
+  --horiPadding: 0.6em;
 }
 html {
   -webkit-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
-}
+} /* preserves HTML font-size when iPhone orientation changes from portrait to landscape */
 @font-face{
 	font-family: freeSans-regular;
 	src: url(assets/freeSans-20120503-woff/FreeSans.woff);
@@ -23,18 +23,21 @@ html {
 	padding: 0;
 }
 body{
-	font-family: freeSans-regular, sans-serif;
+/*	font-family: freeSans-regular, sans-serif;*/
+	font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
 	width: 100%;
 	max-width: 1260px;
 	margin-left: auto;
 	margin-right: auto;
+	-webkit-font-smoothing: antialiased;
 }
 #journal{
 	margin: 1em;
-	border: 1px solid black;
+	border: 1px solid #000;
 	border-bottom: 0;
-	line-height: 1.5;
-	letter-spacing: 0.02em;
+	line-height: 1.25;
+	letter-spacing: 0.015em;
+/*	background-color: yellow;*/
 }
 #title{
 	text-align: center;
@@ -50,17 +53,25 @@ body{
 	grid-template-columns:repeat(2, 50%);
 	grid-template-rows: auto;
 }
-a{
-	font-family: freeSans-italic;
-	color: inherit;
-	cursor: pointer;
-	text-decoration: none;
-}
 
 @media all and (max-width: 900px) {
 	.row{
 		grid-template-columns: 100%;
 		grid-template-rows: auto auto;
+	}
+}
+
+.infoCont{
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	counter-reset: count; 
+}
+@media all and (max-width: 900px) {
+	.infoCont{
+		grid-template-columns: repeat(3, max-content);
+		margin: auto;
+		text-align: center;
+		gap: 1em;
 	}
 }
 
@@ -79,18 +90,24 @@ a{
 .note{
 	padding-right: 0;
 }
-.infoCont{
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
+
+a{
+/*	font-family: freeSans-italic;*/
+	font-style: italic;
+	color: inherit;
+	cursor: pointer;
+	text-decoration: none;
 }
-@media all and (max-width: 900px) {
-	.infoCont{
-		grid-template-columns: repeat(3, max-content);
-		margin: auto;
-		text-align: center;
-		gap: 1em;
-	}
+a::after{ 
+	font-style: normal;
+	font-weight: bold;
+	content: '↗'; 
 }
+a:hover{
+	color: blue;
+}
+
+
 .nobr { white-space:nowrap; }
 .date{ padding-left: 0; }
 
