@@ -1,13 +1,14 @@
 :root{
-  --verPadding: 0.15em;
-  --horiPadding: 0.35em;
-
+  /*--verPadding: 0.15em;
+  --horiPadding: 0.35em;*/
   --font-size-1:22px;
   --font-size-2:18px;
   --font-size-3:15px;
   --font-size-4:13px;
-  --friday-background-color:#000;
-  --friday-color:#fff;
+  --line-height:1.2;
+  --border-width: 1px;
+  --verPadding: 0em;
+  --horiPadding: 0.2em;
 
 }
 html{ font-size: var(--font-size-1); }
@@ -26,34 +27,25 @@ html {
 *{
 	margin: 0;
 	padding: 0;
+	box-sizing: content-box;
 }
 body{
 	font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+	line-height: var(--line-height);
 	-webkit-font-smoothing: antialiased;
 	width: 100%;
-/*	max-width: 1400px;*/
-	margin: 0 auto;
 }
 #journal{
-/*	margin: 1em;*/
-	/*border: 1px solid #000;
-	border-bottom: 0;*/
-	line-height: 1.25;
 	letter-spacing: 0.0125em;
-}
-#title{
-	text-align: center;
-	border-bottom: 1px solid #000;
-	padding: var(--verPadding) var(--horiPadding);
 }
 .row{
 	display: grid;
-	border-bottom: 1px solid #000;
 	padding: var(--verPadding) var(--horiPadding);
+	/*	border-bottom: var(--border-width) solid #000;*/
+	box-shadow: inset 0 0 0 #000, inset 0 0 0 #000, inset 0 0 0 #000, inset 0 1px 0 #000;
 }
 .row{
 	grid-template-columns:repeat(2, 50%);
-/*grid-template-columns: 45% 55%;*/
 	grid-template-rows: auto;
 }
 
@@ -64,11 +56,15 @@ body{
 	}
 }
 
+.row:last-child{
+	padding-block: 1px;
+	box-shadow: inset 0 0 0 #000, inset 0 -1px 0 #000, inset 0 0 0 #000, inset 0 1px 0 #000;
+}
+
 .infoCont{
 	display: grid;
 	word-spacing: -0.08em;
 	grid-template-columns: repeat(3, 1fr);
-/*	grid-template-columns: 38% 38% 24%;*/
 }
 /*@media all and (max-width: 840px) {
 	.infoCont{
@@ -87,12 +83,14 @@ body{
 }
 
 .infoCont .cell{
-	border-right: 1px solid #000;
+	box-shadow: inset -1px 0 0 #000, inset 0 0 0 #000, inset 0 0 0 #000, inset 0 0 0 #000;
+/*	border-right: var(--border-width) solid #000;*/
 }
 
 @media all and (max-width: 840px) {
 	.infoCont .cell{
-		border-right: 0;
+		box-shadow: none;
+/*		border-right: 0;*/
 	}
 }
 
@@ -100,7 +98,6 @@ body{
   word-wrap: break-word;
   padding-left: var(--horiPadding);
   padding-right: var(--horiPadding);
-  box-sizing: border-box;
 }
 @media all and (max-width: 840px) {
 	.cell{ 
@@ -110,18 +107,16 @@ body{
 
 .note{
 	padding-right: 0;
-	word-spacing: -0.07em;
+	word-spacing: -0.05em;
 }
 
 /*.classday{
 	background-color: var(--friday-background-color);
 	color: var(--friday-color);
-}*/
-.classday, .classday .cell{
-/*	border-color: var(--friday-color);*/
-/*border-width: 2px;*/
-/*border-color: rgb(255,50,0);*/
 }
+.classday, .classday .cell{
+	border-color: var(--friday-color);
+}*/
 
 a{
 	font-style: italic;
@@ -132,9 +127,7 @@ a{
 a:hover{
 	color: red;
 }
-
-
-.nobr { white-space:nowrap; }
+.nobr{ white-space:nowrap; }
 .date{ padding-left: 0; }
 
 
