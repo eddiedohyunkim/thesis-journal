@@ -18,7 +18,7 @@ function createJournal(x, n){
 	const dateText = getDay+', '+x.Date;
 	const dayText = dayCounter(x.Date);
 	x.Rating = x.Rating || 0;
-	const RatingText = `<sup>${x.Rating}</sup> &frasl; <sub>10</sub>`;
+	const RatingText = `<sup>${x.Rating}</sup> &frasl; <sub>5</sub>`;
 	let noteText = x.Notes;
 
 	// <li> tag

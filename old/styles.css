@@ -1,12 +1,18 @@
 :root {
-  --main-color: #e0d290;
-  --spacing: 0.3em;
+/*  --main-color: #e0d290;*/
+  --main-color: #fff;
+  --spacing: 0.1em;
 }
 body {
-	line-height: 1.2;
+/*	line-height: 1.2;*/
 	background-color: var(--main-color);
 /*	-webkit-font-smoothing: antialiased;*/
 /*	-moz-osx-font-smoothing: grayscale;*/
+
+	font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+	line-height: 1.25;
+	-webkit-font-smoothing: antialiased;
+	letter-spacing: 0.0125em;
 }
 #journal{
 	width: 100%;
@@ -117,11 +123,11 @@ li::before {
 		padding-bottom: 0;
 	}
 	.info{
-		border-right: 1px solid #000;
+/*		border-right: 1px solid #000;*//
 		border-bottom: 0px;
 	}
 	.classday .info{
-		border-right: 1px solid var(--main-color);
+/*		border-right: 1px solid var(--main-color);*/
 		border-bottom: 0px;
 	}
 }
@@ -134,6 +140,6 @@ li::before {
 
 @media screen and (min-width: 1200px){
 	.cell{
-  		font-size: 24px;
+  		font-size: 22px;
 	}
 }

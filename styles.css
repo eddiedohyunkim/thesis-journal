@@ -1,15 +1,16 @@
 :root{
   /*--verPadding: 0.15em;
   --horiPadding: 0.35em;*/
-  --font-size-1:22px;
-  --font-size-2:18px;
-  --font-size-3:15px;
-  --font-size-4:13px;
-  --line-height:1.2;
+  --font-size-1: 22px;
+  --font-size-2: 18px;
+  --font-size-3: 15px;
+  --font-size-4: 13px;
+  --line-height: 1.25;
   --border-width: 1px;
   --verPadding: 0em;
   --horiPadding: 0.2em;
-
+  --friday-background-color: #000;
+	--friday-color: #fff;
 }
 html{ font-size: var(--font-size-1); }
 @media all and (max-width: 1240px) { html{ font-size: var(--font-size-2); } } 
@@ -34,6 +35,8 @@ body{
 	line-height: var(--line-height);
 	-webkit-font-smoothing: antialiased;
 	letter-spacing: 0.0125em;
+
+/*	background-color: #f0f0f0;*/
 }
 
 .row{
@@ -106,13 +109,13 @@ body{
 /*	word-spacing: -0.05em;*/
 }
 
-/*.classday{
+.classday{
 	background-color: var(--friday-background-color);
 	color: var(--friday-color);
 }
 .classday, .classday .cell{
 	border-color: var(--friday-color);
-}*/
+}
 
 a{
 	font-style: italic;
