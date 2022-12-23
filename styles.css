@@ -1,6 +1,8 @@
 :root{
-  /*--verPadding: 0.15em;
-  --horiPadding: 0.35em;*/
+/*  --verPadding: 0.15em;*/
+/*  --horiPadding: 0.35em;*/
+/*	--horiPadding: 0.4em;*/
+	--horiPadding: 0.5em;
   --font-size-1: 22px;
   --font-size-2: 18px;
   --font-size-3: 15px;
@@ -8,7 +10,7 @@
   --line-height: 1.25;
   --border-width: 1px;
   --verPadding: 0em;
-  --horiPadding: 0.2em;
+/*  --horiPadding: 0.2em;*/
   --friday-background-color: #000;
 	--friday-color: #fff;
 }
@@ -35,8 +37,9 @@ body{
 	line-height: var(--line-height);
 	-webkit-font-smoothing: antialiased;
 	letter-spacing: 0.0125em;
+	width:100%;
 
-/*	background-color: #f0f0f0;*/
+/*	background-color: orangered;*/
 }
 
 .row{
@@ -108,14 +111,15 @@ body{
 	padding-right: 0;
 /*	word-spacing: -0.05em;*/
 }
-
 .classday{
-	background-color: var(--friday-background-color);
-	color: var(--friday-color);
+/*	background-color: var(--friday-background-color);*/
+/*	color: var(--friday-color);*/
+/*	letter-spacing: 0em;*/
+/*	font-weight: 500;*/
 }
-.classday, .classday .cell{
+/*.classday, .classday .cell{
 	border-color: var(--friday-color);
-}
+}*/
 
 a{
 	font-style: italic;
@@ -156,6 +160,7 @@ li {
 }
 li::before {
   content: "•";
+  font-weight: normal;
   display: table-cell;
   text-align: right;
   padding-right: 0.3em;
